@@ -116,4 +116,12 @@
   (load-theme 'gruvbox-dark-hard t))
 
 
+
+(use-package julia-mode
+  :ensure t)
+
+(use-package maxima
+  :ensure t)
+
+
 (load-file custom-file)
