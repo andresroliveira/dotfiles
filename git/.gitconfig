@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[user]
+	name = Andrês
+	email = andresroliveira98@gmail.com
+[core]
+	editor = vim
