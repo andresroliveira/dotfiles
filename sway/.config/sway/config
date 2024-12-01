@@ -325,8 +325,15 @@ bindsym $mod+Backspace mode "$mode_system"
 exec --no-startup-id dunst &
 
 # floating pop up automatically
+# pop-up windows
 for_window [window_role="pop-up"] floating enable
+for_window [window_role="About"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_role="dialog"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [class="Google-chrome" window_role="pop-up"] floating enable
+
+
 
 #
 # KDE Wallet
