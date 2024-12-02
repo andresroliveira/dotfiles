@@ -291,8 +291,9 @@ include /etc/sway/config.d/*
 # Andres
 #
 
-hide_edge_borders none
 gaps inner 10
+gaps outer 10
+# default_border pixel 2
 # default_border none
 # default_floating_border none
 bindsym $mod+e exec $files
