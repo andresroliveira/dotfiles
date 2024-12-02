@@ -99,12 +99,14 @@ focus_follows_mouse no
 # bindsym $mod+Shift+tab workspace prev_on_output
 
 bindsym $mod+tab workspace back_and_forth
+bindsym Mod1+tab workspace next_on_output
+bindsym Mod1+Shift+tab workspace prev_on_output
 # bindsym Mod1+Tab focus back_and_forth
 
 # Allow switching between workspaces with left and right swipes
 
-bindgesture swipe:4:right workspace prev
-bindgesture swipe:4:left workspace next
+bindgesture swipe:4:right workspace prev_on_output
+bindgesture swipe:4:left workspace next_on_output
 
 # Allow switching focus with three finger swipes
 
@@ -158,10 +160,10 @@ bindgesture swipe:3:down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    bindsym $mod+Control+$up workspace prev 
-    bindsym $mod+Control+$down workspace next
-    bindsym $mod+Control+Up workspace prev 
-    bindsym $mod+Control+Down workspace next
+    bindsym $mod+Control+$left workspace prev_on_output
+    bindsym $mod+Control+$right workspace next_on_output
+    bindsym $mod+Control+Left workspace prev_on_output
+    bindsym $mod+Control+Right workspace next_on_output
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
