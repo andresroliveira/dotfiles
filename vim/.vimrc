@@ -105,6 +105,8 @@ Plug 'morhetz/gruvbox'
 Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
