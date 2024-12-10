@@ -125,3 +125,7 @@
 
 
 (load-file custom-file)
+
+(windmove-default-keybindings 'meta)
+
+(setq doc-view-continuous t)
