@@ -30,10 +30,10 @@ set $files dolphin
 output * bg ~/Imagens/1357324.jpeg fill
 # workspace 1 output eDP-1
 # workspace 2 output HDMI-A-1
-output HDMI-A-1 pos 0 0 res 1600x900
-output eDP-1 pos 1600 0
-# output HDMI-A-1 pos 0 0 res 1920x1080@60.000Hz
-# output eDP-1 pos 1920 0 
+# output HDMI-A-1 pos 0 0 res 1600x900
+# output eDP-1 pos 1600 0
+output eDP-1 pos 0 0 res 1366x768
+output HDMI-A-1 pos 1366 0
 
 
 font pango:FiraCode Nerd Font 8
