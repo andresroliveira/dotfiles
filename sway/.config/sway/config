@@ -110,10 +110,10 @@ bindgesture swipe:4:left workspace next_on_output
 
 # Allow switching focus with three finger swipes
 
-bindgesture swipe:3:right focus right
-bindgesture swipe:3:left focus left
-bindgesture swipe:3:up focus up 
-bindgesture swipe:3:down focus down
+bindgesture swipe:3:right focus left
+bindgesture swipe:3:left focus right
+bindgesture swipe:3:up focus down
+bindgesture swipe:3:down focus up
 
 ### Key bindings
 #
