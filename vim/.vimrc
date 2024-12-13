@@ -48,6 +48,8 @@ set showcmd
 
 set showmode
 
+set clipboard=unnamedplus
+
 set updatetime=300
 
 if empty(v:servername) && exists('*remote_startserver')
@@ -107,6 +109,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jasonccox/vim-wayland-clipboard'
 
 call plug#end()
 
@@ -168,7 +171,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " VimTeX
 
-let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_method = 'zathura_simple'
 
 " Themes
 set termguicolors
