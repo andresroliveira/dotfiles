@@ -74,6 +74,9 @@ nnoremap <C-d> <C-d>zz
 
 nnoremap G Gzz
 
+inoremap <silent><C-a> <C-o>^
+inoremap <silent><C-e> <C-o>$
+
 set scrolloff=8
 
 " Display different types of white spaces.
@@ -222,12 +225,6 @@ nnoremap <silent> <M-j> :m .+1<CR>==
 
 " Move current line up
 nnoremap <silent> <M-k> :m .-2<CR>==
-
-" Move to beginning of line in insert mode
-inoremap <silent> <C-a> <C-o>^
-
-" Move to end of line in insert mode
-inoremap <silent> <C-e> <C-o>$
 
 
 let g:startify_lists = [
