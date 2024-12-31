@@ -27,13 +27,14 @@ set $files dolphin
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/Imagens/1357324.jpeg fill
+# output * bg ~/Imagens/1357324.jpeg fill
+output * bg ~/Imagens/wave_wallpaper.jpg fill
 # workspace 1 output eDP-1
 # workspace 2 output HDMI-A-1
-# output HDMI-A-1 pos 0 0 res 1600x900
-# output eDP-1 pos 1600 0
-output eDP-1 pos 0 0 res 1366x768
-output HDMI-A-1 pos 1366 0
+output HDMI-A-1 pos 0 0 res 1600x900
+output eDP-1 pos 1600 0
+# output eDP-1 pos 0 0 res 1366x768
+# output HDMI-A-1 pos 1366 0
 
 
 font pango:FiraCode Nerd Font 8
@@ -282,20 +283,21 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     # bindsym Print exec grim
-    bindsym Print exec slurp | grim -s 2 -g - - | tee "$HOME/Imagens/Screenshots/Screenshot-$(date '+%Y-%m-%d_%H-%M-%S')" | wl-copy
-    bindsym $mod+Shift+s exec slurp | grim -s 2 -g - - | tee "$HOME/Imagens/Screenshots/Screenshot-$(date '+%Y-%m-%d_%H-%M-%S')" | wl-copy
-    bindsym $mod+Print exec grim -s 2 - | tee "$HOME/Imagens/Screenshots/Screenshot-$(date '+%Y-%m-%d_%H-%M-%S')" | wl-copy
+    bindsym Print exec slurp | grim -s 2 -g - - | tee "$HOME/Imagens/Screenshots/Screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png" | wl-copy
+    bindsym $mod+Shift+s exec slurp | grim -s 2 -g - - | tee "$HOME/Imagens/Screenshots/Screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png" | wl-copy
+    bindsym $mod+Print exec grim -s 2 - | tee "$HOME/Imagens/Screenshots/Screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png" | wl-copy
 include /etc/sway/config.d/*
 
 #
 # Andres
 #
 
-gaps inner 10
-gaps outer 10
+# gaps inner 5
+# gaps outer 5
 # default_border pixel 2
 # default_border none
 # default_floating_border none
+hide_edge_borders both
 bindsym $mod+e exec $files
 bindsym $mod+b exec $browser
 
@@ -401,7 +403,7 @@ bar {
     colors {
         statusline #ffffff
         # background #323232
-        background #32323280
+        background #000000
         # inactive_workspace #32323200 #32323200 #5c5c5c
         # inactive_workspace $inactive $inactive $light
         # focused_workspace $focused $focused $light
