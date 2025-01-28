@@ -1,21 +1,53 @@
 * {
     font-family: FiraCode, Icons, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 9px;
+    font-size: 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    min-height: 0;
+    min-width: 0;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    /* background-color: rgba(29, 32, 33, 0.95); */
+    background-color: rgba(40, 40, 40, 0.95);
+    /* background-color: #1d2021; */
     color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
 }
 
+#pulseaudio,
 #network, 
 #cpu, 
 #memory, 
 #clock {
-    padding: 0 10px;
     color: #ffffff;
+    padding-right: 8px;
+    padding-left: 8px;
+    border-right: 1px solid #333333;
+}
+
+#workspaces button {
+    color: #ffffff;
+    background: #222222;
+    border-color: #333333;
+    border: 0.05px solid;
+}
+
+/* #workspaces button:hover { */
+/*     background: rgba(0, 0, 0, 0.9); */
+/* } */
+
+#workspaces button.focused {
+    /* background-color: #64727D; */
+    background: #285577;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#window,
+#workspaces {
+    margin: 0 0px;
 }
 
