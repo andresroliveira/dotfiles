@@ -42,7 +42,7 @@
 (global-hl-line-mode 1)
 
 ;; Font
-(set-frame-font "FiraCode Nerd Font 10" nil t)
+(set-frame-font "FiraCode Nerd Font 12" nil t)
 
 ;; Bar and Column
 (tool-bar-mode 0)
@@ -68,8 +68,7 @@
   :ensure t
   :config (smex-initialize)
   :bind(
-        ("M-x" . smex)
-        )
+        ("M-x" . smex))
   )
 
 ;; Which-key
@@ -99,8 +98,9 @@
 (use-package company
   :ensure t
   :init
-  (global-company-mode)  ;; Ativa o company-mode globalmente
+  ;;(global-company-mode)  ;; Ativa o company-mode globalmente
   :config
+  (global-company-mode)
   (setq company-idle-delay 0.2)  ;; Tempo de espera antes de mostrar as sugestões
   (setq company-minimum-prefix-length 1))  ;; Mínimo de caracteres para mostrar sugestões
 
@@ -122,6 +122,9 @@
 
 (use-package maxima
   :ensure t)
+(autoload 'maxima "maxima" "Maxima interaction" t)
+(setq auto-mode-alist (cons '("\\.max\\'" . maxima-mode) auto-mode-alist))
+(autoload 'maxima-mode "maxima" "Maxima mode" t)
 
 
 (load-file custom-file)
@@ -129,3 +132,71 @@
 (windmove-default-keybindings 'meta)
 
 (setq doc-view-continuous t)
+
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode))
+  :init (setq markdown-command "/usr/bin/pandoc"))
+
+
+(use-package yasnippet
+  :ensure t
+  :config (yas-global-mode 1))
+
+
+
+;; LaTeX
+
+(use-package tex
+  :ensure auctex
+  :hook ((LaTeX-mode . TeX-source-correlate-mode)
+         (LaTeX-mode . visual-line-mode)
+         (LaTeX-mode . flyspell-mode)
+         (LaTeX-mode . company-mode)
+         (LaTeX-mode . reftex-mode))
+  :config
+  ;; Configuração geral do AUCTeX
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil) ;; Pergunta o arquivo principal ao abrir um .tex
+
+  ;; Visualização de PDFs com pdf-tools
+  (setq TeX-view-program-selection '((output-pdf "PDF Tools")))
+  (setq TeX-source-correlate-start-server t) ;; Habilita SyncTeX para navegação
+  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+
+  ;; Compilação em modo não interativo
+  (setq TeX-command-extra-options "-shell-escape") ;; Se precisar de TikZ ou outras ferramentas
+  (setq TeX-show-compilation t)) ;; Mostra a saída da compilação
+
+;; Configuração do company-mode para LaTeX
+(use-package company-auctex
+  :ensure t
+  :after (company tex)
+  :config
+  (company-auctex-init))
+
+;; RefTeX para gerenciamento de referências e citações
+(use-package reftex
+  :ensure t
+  :hook (LaTeX-mode . reftex-mode)
+  :config
+  (setq reftex-plug-into-AUCTeX t)
+  (setq reftex-cite-format 'natbib))
+
+;; PDF-Tools para visualizar PDFs diretamente no Emacs
+(use-package pdf-tools
+  :ensure t
+  :config
+  (pdf-tools-install)
+  (setq-default TeX-PDF-mode t))
+
+;; Path
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
+
