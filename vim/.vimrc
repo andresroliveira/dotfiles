@@ -1,6 +1,9 @@
 set nocompatible
 
+" Mouse support
 set mouse=a
+set ttymouse=sgr
+set balloonevalterm
 
 set backspace=indent,eol,start
 
@@ -113,6 +116,8 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jasonccox/vim-wayland-clipboard'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 
 call plug#end()
 
@@ -126,7 +131,7 @@ nnoremap <leader>fs :Rg<cr>
 
 " Copilot
 
-imap <silent><script><expr> <C-Y> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-E> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 imap <C-L> <Plug>(copilot-accept-word)
 
@@ -200,8 +205,47 @@ highlight! link SignColumn LineNr
 " hi Normal guibg=NONE ctermbg=NONE
 " autocmd VimEnter * hi Normal ctermbg=none
 
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+" let &t_SI = "\e[6 q"
+" let &t_EI = "\e[2 q"
+
+" Styled and colored underline support
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2:%lu:%lu:%lum"
+let &t_Us = "\e[4:2m"
+let &t_Cs = "\e[4:3m"
+let &t_ds = "\e[4:4m"
+let &t_Ds = "\e[4:5m"
+let &t_Ce = "\e[4:0m"
+" Strikethrough
+let &t_Ts = "\e[9m"
+let &t_Te = "\e[29m"
+" Truecolor support
+let &t_8f = "\e[38:2:%lu:%lu:%lum"
+let &t_8b = "\e[48:2:%lu:%lu:%lum"
+let &t_RF = "\e]10;?\e\\"
+let &t_RB = "\e]11;?\e\\"
+" Bracketed paste
+let &t_BE = "\e[?2004h"
+let &t_BD = "\e[?2004l"
+let &t_PS = "\e[200~"
+let &t_PE = "\e[201~"
+" Cursor control
+let &t_RC = "\e[?12$p"
+let &t_SH = "\e[%d q"
+let &t_RS = "\eP$q q\e\\"
+let &t_SI = "\e[5 q"
+let &t_SR = "\e[3 q"
+let &t_EI = "\e[1 q"
+let &t_VS = "\e[?12l"
+" Focus tracking
+let &t_fe = "\e[?1004h"
+let &t_fd = "\e[?1004l"
+execute "set <FocusGained>=\<Esc>[I"
+execute "set <FocusLost>=\<Esc>[O"
+" Window title
+let &t_ST = "\e[22;2t"
+let &t_RT = "\e[23;2t"
+
 
 set noshowmode
 
@@ -234,3 +278,6 @@ let g:startify_lists = [
         \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
+
+
+let g:mkdp_browser = 'firefox'
