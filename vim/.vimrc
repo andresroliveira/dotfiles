@@ -105,7 +105,7 @@ Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'lervag/vimtex', { 'tag': 'v2.15' }
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
@@ -137,7 +137,7 @@ imap <C-L> <Plug>(copilot-accept-word)
 
 " NERDTree
 
-nnoremap <leader>ee :NERDTreeToggle<cr>
+nnoremap <leader>e :NERDTreeToggle<cr>
 
 " COC
 
@@ -281,3 +281,8 @@ let g:startify_lists = [
 
 
 let g:mkdp_browser = 'firefox'
+
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<leader>n'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<leader>n'           " replace visual C-n
+

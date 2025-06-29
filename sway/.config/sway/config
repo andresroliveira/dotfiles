@@ -19,7 +19,8 @@ set $right l
 set $term ghostty
 # Your preferred application launcher
 # set $menu wmenu-run
-set $menu 'rofi -show combi -modes combi -combi-modes window,drun,run,ssh'
+# set $menu 'rofi -show combi -modes combi -combi-modes window,drun,run,ssh'
+set $menu 'rofi -show combi -modes combi -combi-modes drun,run'
 
 set $browser google-chrome-stable
 set $files dolphin

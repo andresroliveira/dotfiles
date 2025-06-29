@@ -177,6 +177,27 @@
   :config
   (company-auctex-init))
 
+(setq TeX-brace-indent-level 4)  ;; Nível de indentação para chaves
+(setq TeX-newline-function 'newline-and-indent) ;; Indentar automaticamente ao pressionar Enter
+
+;; Definir a largura da tabulação e usar espaços em vez de tabs
+(setq-default TeX-indent-level 4)  ;; Nível de indentação padrão para LaTeX
+(setq-default LaTeX-indent-level 4)  ;; Nível de indentação específico para LaTeX
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil) ;; Usa espaços ao invés de tabs
+
+;; Ajustar regras de indentação para ambientes específicos
+(setq LaTeX-item-indent 2)  ;; Indentação para itens em listas
+
+;; Hook para garantir que a indentação seja aplicada no modo LaTeX
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (setq TeX-brace-indent-level 4)
+            (setq TeX-indent-level 4)
+            (setq LaTeX-indent-level 4)
+            (setq LaTeX-item-indent 2)))
+
+
 ;; RefTeX para gerenciamento de referências e citações
 (use-package reftex
   :ensure t
@@ -191,6 +212,8 @@
   :config
   (pdf-tools-install)
   (setq-default TeX-PDF-mode t))
+(add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
+
 
 ;; Path
 (use-package exec-path-from-shell
