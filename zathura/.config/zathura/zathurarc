@@ -1,5 +1,0 @@
-set selection-clipboard clipboard
-map i recolor
-set selection-notification false
-
-
