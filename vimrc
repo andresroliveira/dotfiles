@@ -1,0 +1,178 @@
+set nocompatible
+
+" Mouse support
+set mouse=a
+set ttymouse=sgr
+set balloonevalterm
+
+set backspace=indent,eol,start
+
+set signcolumn=yes
+
+filetype on
+
+filetype plugin on
+
+filetype indent on
+
+syntax on
+
+set autoindent
+
+set smartindent
+
+set tabstop=4
+
+set shiftwidth=4
+
+set expandtab
+
+set number
+
+set relativenumber
+
+set cursorline
+
+set nobackup
+
+set nowritebackup
+
+set ignorecase
+
+set smartcase
+
+set hlsearch
+
+set incsearch
+
+set showmatch
+
+set showcmd
+
+set showmode
+
+set clipboard=unnamedplus
+
+set updatetime=300
+
+" if empty(v:servername) && exists('*remote_startserver')
+"   call remote_startserver('VIM')
+" endif
+
+inoremap jj <esc>
+
+let mapleader = " "
+let maplocalleader = " "
+
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+
+nnoremap n nzz
+nnoremap N Nzz
+
+nnoremap <C-f> <C-f>zz
+nnoremap <C-b> <C-b>zz
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
+nnoremap G Gzz
+
+inoremap <silent><C-a> <C-o>^
+inoremap <silent><C-e> <C-o>$
+
+set scrolloff=8
+
+" Display different types of white spaces.
+" set list
+" set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+
+
+" Encoding
+set encoding=utf-8
+
+" Plugins
+call plug#begin()
+
+" List your plugins here
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
+Plug 'machakann/vim-highlightedyank'
+
+call plug#end()
+
+" Themes
+set termguicolors
+set bg=dark
+
+let g:airline_powerline_fonts = 1
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_transparent_bg = 1
+set bg=dark
+colorscheme gruvbox
+highlight! link SignColumn LineNr
+
+
+" colorscheme tokyonight
+" colorscheme habamax
+" colorscheme gruvbox
+" hi Normal guibg=NONE ctermbg=NONE
+" autocmd VimEnter * hi Normal ctermbg=none
+
+" Styled and colored underline support
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2:%lu:%lu:%lum"
+let &t_Us = "\e[4:2m"
+let &t_Cs = "\e[4:3m"
+let &t_ds = "\e[4:4m"
+let &t_Ds = "\e[4:5m"
+let &t_Ce = "\e[4:0m"
+" Strikethrough
+let &t_Ts = "\e[9m"
+let &t_Te = "\e[29m"
+" Truecolor support
+let &t_8f = "\e[38:2:%lu:%lu:%lum"
+let &t_8b = "\e[48:2:%lu:%lu:%lum"
+let &t_RF = "\e]10;?\e\\"
+let &t_RB = "\e]11;?\e\\"
+" Bracketed paste
+let &t_BE = "\e[?2004h"
+let &t_BD = "\e[?2004l"
+let &t_PS = "\e[200~"
+let &t_PE = "\e[201~"
+" Cursor control
+let &t_RC = "\e[?12$p"
+let &t_SH = "\e[%d q"
+let &t_RS = "\eP$q q\e\\"
+let &t_SI = "\e[5 q"
+let &t_SR = "\e[3 q"
+let &t_EI = "\e[1 q"
+let &t_VS = "\e[?12l"
+" Focus tracking
+let &t_fe = "\e[?1004h"
+let &t_fd = "\e[?1004l"
+execute "set <FocusGained>=\<Esc>[I"
+execute "set <FocusLost>=\<Esc>[O"
+" Window title
+let &t_ST = "\e[22;2t"
+let &t_RT = "\e[23;2t"
+
+
+" Move selected lines down
+vnoremap <silent> J :m '>+1<CR>gv=gv
+
+" Move selected lines up
+vnoremap <silent> K :m '<-2<CR>gv=gv
+
+" Join lines
+nnoremap <silent> J mzJ`z
+
+" Split line
+nnoremap <silent> K mzi<CR><ESC>`z
+
+set noshowmode
+
+let g:lightline = { 'colorscheme': 'gruvbox' }
+
