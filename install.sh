@@ -41,9 +41,9 @@ create_symlink() {
 # create_symlink ~/dotfiles/ghostty ~/.config/ghostty
 # create_symlink ~/dotfiles/sway ~/.config/sway
 # create_symlink ~/dotfiles/emacs ~/.emacs.d
-create_symlink ~/dotfiles/vim/vimrc ~/.vimrc
+# create_symlink ~/dotfiles/vim/vimrc ~/.vimrc
 # create_symlink ~/dotfiles/zathura ~/.config/zathura
-# create_symlink ~/dotfiles/chrome-flags.conf ~/.config/chrome-flags.conf
+create_symlink ~/dotfiles/chrome/chrome-flags.conf ~/.config/chrome-flags.conf
 # create_symlink ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 # create_symlink ~/dotfiles/waybar ~/.config/waybar
 # create_symlink ~/dotfiles/git/gitconfig ~/.gitconfig
