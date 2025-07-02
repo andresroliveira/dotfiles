@@ -22,7 +22,7 @@ set $menu wmenu-run
 set $browser google-chrome-stable
 set $files dolphin
 
-font pango:FiraCode Mono Nerd Font 9
+font pango:Iosevka Mono Nerd Font 9
 
 ### Output configuration
 #
