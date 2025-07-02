@@ -4,7 +4,7 @@
 
 ;; Disable startup screen and GUI elements
 (setq inhibit-startup-screen t)
-(tool-bar-mode 1)
+(tool-bar-mode 0)
 (menu-bar-mode 1)
 (scroll-bar-mode -1)
 (column-number-mode 1)
