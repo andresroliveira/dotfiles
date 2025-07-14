@@ -55,9 +55,9 @@ set clipboard=unnamedplus
 
 set updatetime=300
 
-" if empty(v:servername) && exists('*remote_startserver')
-"   call remote_startserver('VIM')
-" endif
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif
 
 inoremap jj <esc>
 
@@ -100,6 +100,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'machakann/vim-highlightedyank'
+Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'tag': 'v2.15' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -176,3 +180,4 @@ set noshowmode
 
 let g:lightline = { 'colorscheme': 'gruvbox' }
 
+let g:vimtex_view_method = 'zathura'

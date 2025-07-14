@@ -22,6 +22,7 @@ window#waybar {
 #tray,
 #memory, 
 #disk,
+#custom-notification,
 #clock {
     color: #ffffff;
     padding-right: 8px;
