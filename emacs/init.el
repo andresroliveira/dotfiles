@@ -63,6 +63,16 @@
 ;; Save backups and auto-saves to a specific directory
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-save-list/" t)))
+;; (setq dired-listing-switches "-alh --group-directories-first")
+(use-package dired
+  :ensure nil
+  :commands (dired dired-jump)
+  :custom
+  (dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+  (dired-dwim-target t)
+  (dired-listing-switches "-alh --group-directories-first")
+  (dired-mouse-drag-files t))
+
 
 ;; Sintax
 (turn-on-font-lock)
