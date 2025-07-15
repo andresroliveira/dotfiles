@@ -74,7 +74,7 @@
   (dired-mouse-drag-files t))
 
 (defun my/duplicate-line ()
-nn  "Duplicate current line"
+  "Duplicate current line"
   (interactive)
   (let ((column (- (point) (point-at-bol)))
         (line (let ((s (thing-at-point 'line t)))
@@ -123,8 +123,8 @@ nn  "Duplicate current line"
 (use-package company
   :ensure t
   :config
-  (setq company-idle-delay 0.2)
-  (setq company-minimum-prefix-length 1)
+  ;; (setq company-idle-delay 0.2)
+  ;; (setq company-minimum-prefix-length 1)
   (global-company-mode 1))
 
 ;; Yasnippet (snippets)
@@ -208,7 +208,12 @@ nn  "Duplicate current line"
 
 (use-package markdown-mode
   :ensure t
-  :mode ("\\.md\\'" . markdown-mode))
+  :mode(("README\\.md\\'" . gfm-mode)
+        ("\\.md\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown")
+  :bind (:map markdown-mode-map
+              ("C-c C-e" . markdown-do)))
+
 
 (use-package lua-mode
   :ensure t
@@ -272,6 +277,11 @@ nn  "Duplicate current line"
                          (require 'lsp-pyright)
                          (lsp))))  ; or lsp-deferred
 
+(use-package yapfify
+  :ensure t)
+
+(use-package jupyter
+  :ensure t)
 
 (use-package magit
   :ensure t)
