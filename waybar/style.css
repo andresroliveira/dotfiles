@@ -33,6 +33,7 @@ window#waybar {
 #disk,
 #custom-notification,
 #battery,
+#mode,
 #clock {
     padding-right: 8px;
     padding-left: 8px;
@@ -61,6 +62,11 @@ window#waybar {
 /* #workspaces { */
 /*     margin: 0 0px; */
 /* } */
+
+#mode{
+    background-color: #eb4d4b;
+	border-bottom: 2px solid #ea6962;
+}
 
 /* ================================ */
 /*            window                 */
