@@ -13,8 +13,8 @@
     ],
     "modules-right": [
         "tray",
-        "cpu", 
-        "memory", 
+        "cpu",
+        "memory",
         "disk",
         "pulseaudio",
         "battery",
@@ -26,17 +26,17 @@
         "tooltip-format": "{name} ({output})",
     },
     "sway/mode": {
-    	"format": " {}",
-	    "max-length": 50
+        "format": " {}",
+        "max-length": 50
     },
     "sway/window": {
         "format": "{app_id}",
         "separate-outputs": true,
-        "icon":true,
-        "tooltip": false
+        "icon": true,
+        "tooltip": true,
     },
     "network": {
-        "format-wifi": "{icon} {essid} ({signalStrength}%)", 
+        "format-wifi": "{icon} {essid} ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr}   ",
         "format-disconnected": "Disconnected ⚠ ",
         "on-click": "nm-connection-editor",
@@ -52,7 +52,7 @@
         "interval": 5,
         "format": "<span color='#e78a4e'>[]</span>  {usage}%",
         "max-length": 10
-    }, 
+    },
     "memory": {
         "interval": 10,
         "format": "<span color='#458588'>[]</span>  {percentage}%",
@@ -66,7 +66,7 @@
         "path": "/",
         "tooltip": true,
         "unit": "GB",
-        "tooltip-format":  "Available {free} of {total}"
+        "tooltip-format": "Available {free} of {total}"
     },
     "clock": {
         "interval": 1,
@@ -124,6 +124,20 @@
         "format-plugged": "<span color='#689d6a'>[󰂅]</span> {capacity}%",
         "format-alt": "<span color='#689d6a'>[󱧥]</span> {time}",
         "tooltip": false
+    },
+    "custom/media": {
+        "format": " {icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜",
+        },
+        "escape": true,
+        // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null", // Filter player based on name
+        "exec-if": "pgrep spotify",
     },
     "custom/notification": {
         "tooltip": false,

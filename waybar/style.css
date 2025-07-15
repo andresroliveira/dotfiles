@@ -11,7 +11,7 @@
 }
 
 window#waybar {
-	background: rgba(34, 34, 34, 0.999);
+	background: rgba(34, 34, 34, 0.99);
 	color: #fff4d2;
 	padding: 0;
 	margin: 0;
@@ -57,12 +57,6 @@ window#waybar {
     background-color: #eb4d4b;
 }
 
-/* #window, */
-/* #mode, */
-/* #workspaces { */
-/*     margin: 0 0px; */
-/* } */
-
 #mode{
     background-color: #eb4d4b;
 	border-bottom: 2px solid #ea6962;
@@ -85,8 +79,8 @@ window#waybar {
 /* ================================ */
 
 #tray {
-	/* margin: 6px 0px; */
-	/* padding: 0 6px; */
+	margin: 6px 0px;
+	padding: 0 6px;
 	background: rgb(51, 51, 51);
 	border-radius: 3px;
 }
@@ -103,11 +97,19 @@ window#waybar {
 	border-bottom: 2px solid #ea6962;
 }
 
+#disk:hover {
+	background-color: rgba(234, 105, 98, 0.2);
+}
+
 /* ================================ */
 /*            cpu                  */
 /* ================================ */
 #cpu {
 	border-bottom: 2px solid #e78a4e;
+}
+
+#cpu:hover {
+	background-color: rgba(231, 138, 78, 0.2);
 }
 
 /* ================================ */
@@ -117,16 +119,26 @@ window#waybar {
 	border-bottom: 2px solid #458588;
 }
 
+#memory:hover {
+	background-color: rgba(69, 133, 136, 0.2);
+}
+
 /* ================================ */
 /*         pulseaudio               */
 /* ================================ */
 #pulseaudio {
 	border-bottom: 2px solid #83a598;
 }
+#pulseaudio:hover {
+	background-color: rgba(131, 165, 152, 0.2);
+}
 
 #pulseaudio.muted {
 	color: #ea6962;
 	border-bottom: 2px solid #ea6962;
+}
+#pulseaudio.muted:hover {
+	background-color: rgba(234, 105, 98, 0.2);
 }
 
 /* ================================ */
@@ -135,10 +147,17 @@ window#waybar {
 #battery {
 	border-bottom: 2px solid #689d6a;
 }
+#battery:hover {
+	background-color: rgba(104, 157, 106, 0.2);
+}
 
 #battery.critical {
 	color: #cc241d;
 	border-bottom: 2px solid #cc241d;
+}
+
+#battery.critical:hover {
+	background-color: rgba(204, 36, 29, 0.2);
 }
 
 #battery.warning {
@@ -146,9 +165,16 @@ window#waybar {
 	border-bottom: 2px solid #e78a4e;
 }
 
+#battery.warning:hover {
+	background-color: rgba(231, 138, 78, 0.2);
+}
+
 #battery.chargin.warning {
 	color: #689d6a;
 	border-bottom: 2px solid #689d6a;
+}
+#battery.charging.warning:hover {
+	background-color: rgba(104, 157, 106, 0.2);
 }
 /* ================================ */
 /*            clock                 */
@@ -156,3 +182,21 @@ window#waybar {
 #clock {
 	border-bottom: 2px solid #8ec07c;
 }
+#clock:hover {
+	background-color: rgba(142, 192, 124, 0.2);
+}
+/* ================================ */
+/*            media                 */
+/* ================================ */
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
