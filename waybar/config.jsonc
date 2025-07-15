@@ -26,7 +26,8 @@
         "tooltip-format": "{name} ({output})",
     },
     "sway/mode": {
-        "format": " {} ",
+    	"format": " {}",
+	    "max-length": 50
     },
     "sway/window": {
         "format": "{app_id}",
