@@ -1,6 +1,7 @@
 * {
-    font-family: 'Iosevka Nerd Font Mono', FiraCode, Icons, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    /* font-family: 'Iosevka Nerd Font Mono', FiraCode, Icons, FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+    font-family: IosevkaTerm Nerd Font Propo;
+	font-size: 12px;
     color: #ffffff;
     border: none;
     border-radius: 0px;
@@ -10,12 +11,20 @@
 }
 
 window#waybar {
-    /* background-color: rgba(29, 32, 33, 0.95); */
-    background-color: rgba(40, 40, 40, 0.95);
-    /* background-color: #1d2021; */
-    color: #ffffff;
+	background: rgba(34, 34, 34, 0.999);
+	color: #fff4d2;
+	padding: 0;
+	margin: 0;
+	border-radius: 5;
 }
 
+#workspaces button,
+#workspaces button:hover,
+#workspaces button.visible,
+#workspaces button.visible:hover,
+#workspaces button.active,
+#workspaces button.active:hover,
+#workspaces button.urgent,
 #pulseaudio,
 #network, 
 #cpu, 
@@ -23,11 +32,13 @@ window#waybar {
 #memory, 
 #disk,
 #custom-notification,
+#battery,
 #clock {
-    color: #ffffff;
     padding-right: 8px;
     padding-left: 8px;
     border-right: 1px solid #333333;
+	font-weight: 900;
+	color: #fff4d2;
 }
 
 #workspaces button {
@@ -37,12 +48,7 @@ window#waybar {
     border: 0.05px solid;
 }
 
-/* #workspaces button:hover { */
-/*     background: rgba(0, 0, 0, 0.9); */
-/* } */
-
 #workspaces button.focused {
-    /* background-color: #64727D; */
     background: #285577;
 }
 
@@ -50,8 +56,97 @@ window#waybar {
     background-color: #eb4d4b;
 }
 
-#window,
-#mode,
-#workspaces {
-    margin: 0 0px;
+/* #window, */
+/* #mode, */
+/* #workspaces { */
+/*     margin: 0 0px; */
+/* } */
+
+/* ================================ */
+/*            window                 */
+/* ================================ */
+
+#window {
+	border-bottom: 2px solid #d3869b;
+    padding-right: 8px;
+    padding-left: 8px;
+	font-weight: 900;
+	color: #fff4d2;
+}
+
+/* ================================ */
+/*            tray                 */
+/* ================================ */
+
+#tray {
+	/* margin: 6px 0px; */
+	/* padding: 0 6px; */
+	background: rgb(51, 51, 51);
+	border-radius: 3px;
+}
+
+#network{
+    border-bottom: 2px solid #d8a657;
+}
+
+/* ================================ */
+/*            disk                 */
+/* ================================ */
+
+#disk {
+	border-bottom: 2px solid #ea6962;
+}
+
+/* ================================ */
+/*            cpu                  */
+/* ================================ */
+#cpu {
+	border-bottom: 2px solid #e78a4e;
+}
+
+/* ================================ */
+/*            memory                */
+/* ================================ */
+#memory {
+	border-bottom: 2px solid #458588;
+}
+
+/* ================================ */
+/*         pulseaudio               */
+/* ================================ */
+#pulseaudio {
+	border-bottom: 2px solid #83a598;
+}
+
+#pulseaudio.muted {
+	color: #ea6962;
+	border-bottom: 2px solid #ea6962;
+}
+
+/* ================================ */
+/*            battery               */
+/* ================================ */
+#battery {
+	border-bottom: 2px solid #689d6a;
+}
+
+#battery.critical {
+	color: #cc241d;
+	border-bottom: 2px solid #cc241d;
+}
+
+#battery.warning {
+	color: #e78a4e;
+	border-bottom: 2px solid #e78a4e;
+}
+
+#battery.chargin.warning {
+	color: #689d6a;
+	border-bottom: 2px solid #689d6a;
+}
+/* ================================ */
+/*            clock                 */
+/* ================================ */
+#clock {
+	border-bottom: 2px solid #8ec07c;
 }

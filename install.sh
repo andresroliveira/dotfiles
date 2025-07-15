@@ -48,4 +48,5 @@ create_symlink() {
 # create_symlink ~/dotfiles/waybar ~/.config/waybar
 # create_symlink ~/dotfiles/git/gitconfig ~/.gitconfig
 # create_symlink ~/dotfiles/bat ~/.config/bat
-create_symlink ~/dotfiles/swaync ~/.config/swaync
+# create_symlink ~/dotfiles/swaync ~/.config/swaync
+create_symlink ~/dotfiles/rofi ~/.config/rofi

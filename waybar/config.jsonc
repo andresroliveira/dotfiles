@@ -1,34 +1,38 @@
 {
-    "position": "bottom",
+    "position": "top",
     "height": 10,
     "spacing": 0,
     "exclusive": true,
-    // "gtk-layer-shell": true,
-    "margin-bottom": -2,
-    // "passthrough": false,
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
-        "sway/scratchpad",
         "custom/media"
     ],
+    "modules-center": [
+        "sway/window",
+    ],
     "modules-right": [
-        "pulseaudio",
-        "network", 
+        "tray",
         "cpu", 
         "memory", 
         "disk",
+        "pulseaudio",
+        "battery",
         "clock",
-        "tray",
-        "custom/notification",
     ],
     "sway/workspaces": {
         "format": "{name}",
         "tooltip": true,
-        "tooltip-format": "{name} ({output})"
+        "tooltip-format": "{name} ({output})",
     },
     "sway/mode": {
         "format": " {} ",
+    },
+    "sway/window": {
+        "format": "{app_id}",
+        "separate-outputs": true,
+        "icon":true,
+        "tooltip": false
     },
     "network": {
         "format-wifi": "{icon} {essid} ({signalStrength}%)", 
@@ -45,19 +49,19 @@
     },
     "cpu": {
         "interval": 5,
-        "format": "  {usage}%",
+        "format": "<span color='#e78a4e'>[]</span>  {usage}%",
         "max-length": 10
     }, 
     "memory": {
         "interval": 10,
-        "format": "  {percentage}%",
+        "format": "<span color='#458588'>[]</span>  {percentage}%",
         "max-length": 10,
         "tooltip": true,
         "tooltip-format": "RAM - {used:0.1f}GiB used"
     },
     "disk": {
         "interval": 30,
-        "format": "󰋊 {percentage_used}%",
+        "format": "<span color='#ea6962'>[]</span> {percentage_used}%",
         "path": "/",
         "tooltip": true,
         "unit": "GB",
@@ -65,7 +69,7 @@
     },
     "clock": {
         "interval": 1,
-        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "format": "<span color='#8ec07c'>[]</span> {:%Y-%m-%d %H:%M:%S}",
         "tooltip": true,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
@@ -86,7 +90,7 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "on-click": "pavucontrol",
-        "format": "{icon} {volume}%",
+        "format": "<span color='#83a598'>[{icon}]</span> {volume}%",
         "format-bluetooth": "{volume}%  {format_source}",
         "format-muted": " ",
         "format-icons": {
@@ -98,9 +102,27 @@
         },
     },
     "tray": {
-        "icon-size": 20,
-        "spacing": 10,
-        "expand": true,
+        "icon-size": 15,
+        "spacing": 8,
+    },
+    "battery": {
+        "interval": 1,
+        "states": {
+            "good": 99,
+            "warning": 30,
+            "critical": 20
+        },
+        "format-icons": ["󰂎","󰁺","󰁻","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+        "format": "<span color='#689d6a'>[{icon}]</span> {capacity}%",
+        "format-critical": "<span color='#cc241d'>[{icon}]</span> {capacity}%!!",
+        "format-warning": "<span color='#e78a4e'>[{icon}]</span> {capacity}%",
+        "format-full": "<span color='#689d6a'>[{icon}]</span> {capacity}%",
+        "format-charging": "<span color='#689d6a'>[󰂅]</span> {capacity}%",
+        "format-charging-warning": "<span color='#e78a4e'>[󰢝]</span> {capacity}%",
+        "format-charging-critical": "<span color='#cc241d'>[󰢜]</span> {capacity}%",
+        "format-plugged": "<span color='#689d6a'>[󰂅]</span> {capacity}%",
+        "format-alt": "<span color='#689d6a'>[󱧥]</span> {time}",
+        "tooltip": false
     },
     "custom/notification": {
         "tooltip": false,
