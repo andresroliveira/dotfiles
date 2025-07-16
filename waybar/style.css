@@ -49,12 +49,27 @@ window#waybar {
     border: 0.05px solid;
 }
 
+#workspaces button:hover {
+	background: rgba(100, 100, 100, 0.8);
+	border-bottom: 0.05px solid #333333;
+}
+
 #workspaces button.focused {
     background: #285577;
 }
 
+#workspaces button.focused:hover {
+	/* background: rgba(40, 85, 119, 0.8); */
+	background: rgba(50, 105, 309, 0.8);
+	border-bottom: 0.05px solid #285577;
+}
+
 #workspaces button.urgent {
     background-color: #eb4d4b;
+}
+
+#workspaces button.urgent:hover {
+	background: rgba(235, 77, 75, 0.8);
 }
 
 #mode{

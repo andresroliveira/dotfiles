@@ -5,8 +5,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(auctex company flycheck gruvbox-theme ido-completing-read+ json-mode
-            jupyter lsp-pyright lsp-ui lua-mode magit move-text
+   '(auctex company company-auctex company-maxima diredfl flycheck
+            gruvbox-theme ido-completing-read+ json-mode jupyter
+            lsp-pyright lsp-ui lua-mode magit maxima move-text
             multiple-cursors pdf-tools python-mode quelpa
             rainbow-delimiters smex tree-sitter-langs typescript-mode
             yapfify yasnippet-snippets)))

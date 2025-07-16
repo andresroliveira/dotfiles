@@ -8,7 +8,7 @@
 (menu-bar-mode 1)
 (scroll-bar-mode -1)
 (column-number-mode 1)
-(global-prettify-symbols-mode 1)
+(global-prettify-symbols-mode -1)
 (setq ring-bell-function 'ignore)
 
 
@@ -73,6 +73,9 @@
   (dired-listing-switches "-alh --group-directories-first")
   (dired-mouse-drag-files t))
 
+(use-package diredfl
+  :hook (dired-mode . diredfl-mode))
+
 (defun my/duplicate-line ()
   "Duplicate current line"
   (interactive)
@@ -126,6 +129,18 @@
   ;; (setq company-idle-delay 0.2)
   ;; (setq company-minimum-prefix-length 1)
   (global-company-mode 1))
+
+(use-package company-auctex
+  :ensure t ; Garante que company-auctex seja instalado se não estiver
+  :after (auctex company) ; MUITO IMPORTANTE: Garante que seja carregado DEPOIS de AUCTeX e company-mode
+  :config
+  ;; Ativa company-auctex em TeX-mode
+  (add-hook 'TeX-mode-hook 'company-mode)
+  ;; Configurações específicas para company-auctex, se houver
+  ;; (company-auctex-init) pode ser necessário dependendo da versão,
+  ;; mas geralmente add-hook 'TeX-mode-hook 'company-mode é suficiente.
+  )
+
 
 ;; Yasnippet (snippets)
 (use-package yasnippet
@@ -324,15 +339,28 @@
 ;; PDF Tools
 (use-package pdf-tools
   :ensure t
-  :after quelpa
   :config
   (pdf-tools-install t)
   (setq pdf-sync-backward-display-action t))
+
+(add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
+
 
 
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
 
+(use-package maxima
+  :ensure t ; Garante que o pacote maxima seja instalado
+  :defer t  ; Carrega o modo Maxima apenas quando necessário
+  :mode (("\\.mac\\'" . maxima-mode)
+         ("\\.max\\'" . maxima-mode)))
+
+(use-package company-maxima
+  :ensure t ; Garante que company-maxima seja instalado
+  :after (maxima company) ; MUITO IMPORTANTE: Carrega DEPOIS de maxima e company-mode
+  :config
+  (add-hook 'maxima-mode-hook 'company-mode))
 
 (server-start)

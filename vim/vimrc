@@ -104,6 +104,7 @@ Plug 'lervag/vimtex'
 Plug 'lervag/vimtex', { 'tag': 'v2.15' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'github/copilot.vim'
 
 call plug#end()
 
