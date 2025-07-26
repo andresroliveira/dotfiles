@@ -22,10 +22,10 @@
 ;;   :config
 ;;   (load-theme 'modus-vivendi-tinted t)) ;; or 'modus-vivendi
 
-(use-package gruvbox-theme
-  :ensure t
-  :config
-  (load-theme 'gruvbox-dark-hard t))
+;; (use-package gruvbox-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruvbox-dark-hard t))
 
 ;; Keymaps
 
@@ -73,8 +73,8 @@
   (dired-listing-switches "-alh --group-directories-first")
   (dired-mouse-drag-files t))
 
-(use-package diredfl
-  :hook (dired-mode . diredfl-mode))
+;; (use-package diredfl
+;;   :hook (dired-mode . diredfl-mode))
 
 (defun my/duplicate-line ()
   "Duplicate current line"
@@ -362,5 +362,56 @@
   :after (maxima company) ; MUITO IMPORTANTE: Carrega DEPOIS de maxima e company-mode
   :config
   (add-hook 'maxima-mode-hook 'company-mode))
+
+
+;; CSS
+(use-package css-mode
+  :ensure nil ;; já vem com o Emacs
+  :mode "\\.css\\'"
+  :hook (css-mode . lsp)
+  :config
+  (setq css-indent-offset 4))
+
+;; HTML
+(use-package html-mode
+  :ensure nil ;; já vem com o Emacs
+  :mode ("\\.html?\\'" . html-mode)
+  :hook (html-mode . lsp))
+
+;; Hook global para programação
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)
+            (setq standard-indent 4)))
+
+;; (use-package prettier-js
+;;   :ensure t
+;;   :config
+;;   (add-hook 'js-mode-hook 'prettier-js-mode))
+
+(setq sgml-basic-offset 4)
+
+(custom-set-variables
+ '(whitespace-style '(face
+                      tabs
+                      spaces
+                      trailing
+                      empty
+                      space-mark
+                      tab-mark
+                      indentation)))
+
+;; Ativa whitespace-mode globalmente
+(global-whitespace-mode 1)
+
+(use-package prettier
+  ;; Garante que o pacote seja instalado se não estiver presente
+  :ensure t
+  ;; Ativa o modo globalmente para todos os buffers suportados
+  :hook (after-init . global-prettier-mode)
+  :config
+  ;; Habilita a formatação ao salvar (este é o padrão, mas é bom ser explícito)
+  (setq prettier-prettify-on-save-flag t))
 
 (server-start)
