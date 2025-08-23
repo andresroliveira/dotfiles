@@ -3,7 +3,7 @@ cursor-style = block
 cursor-style-blink = false
 
 # fonts
-font-size = 15
+font-size = 12
 font-family = Iosevka Nerd Font Mono
 
 # clipboard
@@ -26,7 +26,7 @@ gtk-adwaita = false
 title = "Ghostty"
 
 # theme
-theme = GruvboxDark
+theme = gruber-darker
 window-theme = ghostty
 background-opacity = 1
 
