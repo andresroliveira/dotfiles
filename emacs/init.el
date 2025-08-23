@@ -1,4 +1,10 @@
-;; Andres emacs config
+;;; init.el --- Configuração do Emacs -*- lexical-binding: t; -*-
+
+;;; Commentary:
+;; Configuração pessoal de Andres para Emacs.
+;; Inclui UI, LSP, Tree-sitter, AUCTeX, etc.
+
+;;; Code:
 (setq custom-file "~/.emacs.d/custom.el")
 (load-file custom-file)
 
@@ -27,6 +33,12 @@
 ;;   :config
 ;;   (load-theme 'gruvbox-dark-hard t))
 
+(use-package gruber-darker-theme
+  :ensure t
+  :config
+  (load-theme 'gruber-darker t))
+
+
 ;; Keymaps
 
 ;; Desabilita os prefixos C-x n e C-x p
@@ -40,7 +52,7 @@
 
 ;; Line numbers and UTF-8
 (global-display-line-numbers-mode t)
-(setq display-line-numbers-type 'relative)
+(setq-default display-line-numbers-type 'relative)
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
@@ -49,7 +61,7 @@
 (setq-default tab-width 4)
 (electric-indent-mode 1)
 (setq-default standard-indent 4)
-(setq c-basic-offset 4) 
+(setq-default c-basic-offset 4)
 
 ;; Enable y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -77,9 +89,12 @@
 ;;   :hook (dired-mode . diredfl-mode))
 
 (defun my/duplicate-line ()
-  "Duplicate current line"
+  "Duplicate the current line and keep point in the same column.
+
+If point is at column N of a line, after duplication it remains
+at column N of the new (duplicated) line."
   (interactive)
-  (let ((column (- (point) (point-at-bol)))
+  (let ((column (- (point) (line-beginning-position)))
         (line (let ((s (thing-at-point 'line t)))
                 (if s (string-remove-suffix "\n" s) ""))))
     (move-end-of-line 1)
@@ -110,8 +125,10 @@
 (setq use-package-always-ensure t)
 
 ;; Ido
+(require 'ido)
 (ido-mode 1)
 (ido-everywhere 1)
+
 (use-package ido-completing-read+
   :config
   (ido-ubiquitous-mode 1))
@@ -168,10 +185,12 @@
   :bind(("C-S-c C-S-c" . mc/edit-lines)
         ("C->" . 'mc/mark-next-like-this)
         ("C-<" . 'mc/mark-previous-like-this)
-        ("C-c C-<" . 'mc/mark-all-like-this)
-        ("M-<mouse-1>" . mc/add-cursor-on-click)))
+        ("C-c C-<" . 'mc/mark-all-like-this)))
 
+(require 'octave)
+(require 'comint)
 (use-package octave
+  :ensure t
   :mode ("\\.m\\'" . octave-mode)
   :hook ((octave-mode . (lambda ()
                           (abbrev-mode 1)
@@ -204,6 +223,7 @@
                                 (awk-mode . "awk")
                                 (other . "bsd")))
 
+(require 'cc-mode)
 (add-hook 'c-mode-hook (lambda () (c-toggle-comment-style -1)))
 
 (use-package python-mode
@@ -320,7 +340,7 @@
           LaTeX-section-section
           LaTeX-section-label))
 
-  (setq reftex-plug-into-AUCTeX t)
+  (setq-default reftex-plug-into-AUCTeX t)
 
   (setq LaTeX-indent-level 4)
   (setq LaTeX-item-indent 0)
@@ -341,7 +361,7 @@
   :ensure t
   :config
   (pdf-tools-install t)
-  (setq pdf-sync-backward-display-action t))
+  (setq-default pdf-sync-backward-display-action t))
 
 (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
 
@@ -392,26 +412,33 @@
 
 (setq sgml-basic-offset 4)
 
-(custom-set-variables
- '(whitespace-style '(face
-                      tabs
-                      spaces
-                      trailing
-                      empty
-                      space-mark
-                      tab-mark
-                      indentation)))
+;; (custom-set-variables
+;;  '(whitespace-style '(face
+;;                       tabs
+;;                       spaces
+;;                       trailing
+;;                       empty
+;;                       space-mark
+;;                       tab-mark
+;;                       indentation)))
 
 ;; Ativa whitespace-mode globalmente
-(global-whitespace-mode 1)
+;; (global-whitespace-mode 1)
 
-(use-package prettier
-  ;; Garante que o pacote seja instalado se não estiver presente
-  :ensure t
-  ;; Ativa o modo globalmente para todos os buffers suportados
-  :hook (after-init . global-prettier-mode)
-  :config
-  ;; Habilita a formatação ao salvar (este é o padrão, mas é bom ser explícito)
-  (setq prettier-prettify-on-save-flag t))
+;; (use-package prettier
+;;   ;; Garante que o pacote seja instalado se não estiver presente
+;;   :ensure t
+;;   ;; Ativa o modo globalmente para todos os buffers suportados
+;;   :hook (after-init . global-prettier-mode)
+;;   :config
+;;   ;; Habilita a formatação ao salvar (este é o padrão, mas é bom ser explícito)
+;;   (setq prettier-prettify-on-save-flag t))
 
-(server-start)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+
+(provide 'init)
+;;; init.el ends here

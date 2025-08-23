@@ -6,7 +6,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
-   '("b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
+   '("e13beeb34b932f309fb2c360a04a460821ca99fe58f69e65557d6c1b10ba18c7"
+     "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
      "fa49766f2acb82e0097e7512ae4a1d6f4af4d6f4655a48170d0a00bcb7183970"
      "3e374bb5eb46eb59dbd92578cae54b16de138bc2e8a31a2451bf6fdb0f3fd81b"
      "19a2c0b92a6aa1580f1be2deb7b8a8e3a4857b6c6ccf522d00547878837267e7"
@@ -17,13 +18,13 @@
      "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
      default))
  '(package-selected-packages
-   '(auctex company company-auctex company-math company-maxima diredfl
-            elfeed flycheck gruber-darker-theme gruvbox-theme
-            ido-completing-read+ json-mode jupyter lsp-pyright lsp-ui
-            lua-mode magit maxima move-text multiple-cursors pdf-tools
-            prettier python-mode quelpa rainbow-delimiters rfc-mode
-            sexy-theme smex tree-sitter-langs typescript-mode yapfify
-            yasnippet-snippets))
+   '(company-auctex company-maxima flycheck gruber-darker-theme
+                    gruvbox-theme ido-completing-read+ json-mode
+                    jupyter lsp-pyright lsp-ui lua-mode magit
+                    move-text multiple-cursors pdf-tools prettier
+                    python-mode quelpa rainbow-delimiters smex
+                    tree-sitter-langs typescript-mode yapfify
+                    yasnippet-snippets))
  '(whitespace-style
    '(face tabs spaces trailing empty space-mark tab-mark indentation)))
 (custom-set-faces
