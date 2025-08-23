@@ -182,3 +182,9 @@ set noshowmode
 let g:lightline = { 'colorscheme': 'gruvbox' }
 
 let g:vimtex_view_method = 'zathura'
+
+filetype off
+set runtimepath+=/usr/local/share/lilypond/2.25.27/vim/
+filetype on
+syntax on
+
