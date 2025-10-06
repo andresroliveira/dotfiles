@@ -11,8 +11,8 @@ clipboard-read = allow
 clipboard-write = allow
 
 # Window
-gtk-single-instance = true
-gtk-wide-tabs = false
+# gtk-single-instance = true
+# gtk-wide-tabs = false
 # window-padding-x = 3,3
 # window-padding-y = 3,0
 window-padding-x = 10
@@ -22,12 +22,12 @@ window-decoration = false
 window-theme = system
 confirm-close-surface = false
 resize-overlay = never
-gtk-adwaita = false
 title = "Ghostty"
 
 # theme
-theme = gruber-darker
-window-theme = ghostty
+# theme = Gruber Darker
+theme = Gruvbox Dark Hard
+# window-theme = ghostty
 background-opacity = 1
 
 # # theming
@@ -61,6 +61,6 @@ background-opacity = 1
 # cursor-color = #928374
 # cursor-text = #ebdbb2
 
-selection-background = #928374
-selection-foreground = #ebdbb2
-bold-is-bright = true
+# selection-background = #928374
+# selection-foreground = #ebdbb2
+# bold-is-bright = true
