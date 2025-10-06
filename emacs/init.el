@@ -20,7 +20,7 @@
 
 ;; Font
 ;; (set-frame-font "FiraCode Nerd Font 11" nil t)
-(set-frame-font "Iosevka Nerd Font 14" nil t)
+(set-frame-font "Iosevka Nerd Font 11" nil t)
 
 ;; Themes
 ;; (use-package modus-themes
@@ -28,15 +28,15 @@
 ;;   :config
 ;;   (load-theme 'modus-vivendi-tinted t)) ;; or 'modus-vivendi
 
-;; (use-package gruvbox-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'gruvbox-dark-hard t))
-
-(use-package gruber-darker-theme
+(use-package gruvbox-theme
   :ensure t
   :config
-  (load-theme 'gruber-darker t))
+  (load-theme 'gruvbox-dark-hard t))
+
+;; (use-package gruber-darker-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruber-darker t))
 
 
 ;; Keymaps
@@ -303,7 +303,11 @@ at column N of the new (duplicated) line."
 ;; UI opcional para o LSP
 (use-package lsp-ui
   :ensure t
-  :commands lsp-ui-mode)
+  :commands lsp-ui-mode
+  :config
+  (setq eldoc-echo-area-use-multiline-p nil)
+  (setq lsp-eldoc-enable-hover nil))
+
 
 (use-package lsp-pyright
   :ensure t
@@ -433,6 +437,13 @@ at column N of the new (duplicated) line."
 ;;   :config
 ;;   ;; Habilita a formatação ao salvar (este é o padrão, mas é bom ser explícito)
 ;;   (setq prettier-prettify-on-save-flag t))
+
+(use-package elfeed
+  :ensure t)
+(use-package elfeed-goodies
+  :ensure t
+  :config
+  (elfeed-goodies/setup))
 
 
 (require 'server)
