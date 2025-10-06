@@ -105,6 +105,7 @@ Plug 'lervag/vimtex', { 'tag': 'v2.15' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'github/copilot.vim'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -188,3 +189,13 @@ set runtimepath+=/usr/local/share/lilypond/2.25.27/vim/
 filetype on
 syntax on
 
+" FZF
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fg :GFiles<cr>
+nnoremap <leader>fb :Buffers<cr>
+nnoremap <leader>fh :History<cr>
+nnoremap <leader>fl :Lines<cr>
+nnoremap <leader>fs :Rg<cr>
+
+
+nnoremap <leader>ee :NERDTreeToggle<cr>
