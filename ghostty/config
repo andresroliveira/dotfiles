@@ -11,14 +11,14 @@ clipboard-read = allow
 clipboard-write = allow
 
 # Window
-# gtk-single-instance = true
-# gtk-wide-tabs = false
+gtk-single-instance = true
+gtk-wide-tabs = false
 # window-padding-x = 3,3
 # window-padding-y = 3,0
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
-window-decoration = false
+# window-decoration = false
 window-theme = system
 confirm-close-surface = false
 resize-overlay = never
