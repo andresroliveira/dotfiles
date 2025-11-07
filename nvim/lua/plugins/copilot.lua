@@ -8,7 +8,7 @@ return {
 		})
 		vim.g.copilot_no_tab_map = true
 
-		vim.keymap.set("i", "<M-F>", "<Plug>(copilot-accept-word)", {
+		vim.keymap.set("i", "<A-F>", "<Plug>(copilot-accept-word)", {
 			silent = true,
 		})
 	end,

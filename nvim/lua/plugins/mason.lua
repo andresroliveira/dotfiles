@@ -33,6 +33,9 @@ return {
 					"cssls",
 					"gopls",
 					"ts_ls", -- novo nome do tsserver
+					"intelephense",
+					"tailwindcss",
+					"emmet_language_server",
 				},
 				-- Deixe true para ligar automaticamente tudo que o Mason instalar.
 				-- Você pode filtrar: { exclude = { "rust_analyzer" } } ou { "lua_ls", "pyright" }
@@ -61,6 +64,8 @@ return {
 				"pylint",
 				"eslint_d",
 				"yapf",
+				"pint",
+				"blade-formatter",
 			},
 		},
 		dependencies = {
