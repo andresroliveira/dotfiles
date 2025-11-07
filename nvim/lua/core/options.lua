@@ -34,23 +34,21 @@ opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
 
-
 -- turn off swapfile
 opt.swapfile = false
-
 opt.showmode = false
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-opt.completeopt = 'menuone,noinsert,noselect'
-vim.opt.scrolloff = 8
-opt.clipboard = 'unnamedplus'
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+opt.completeopt = "menuone,noinsert,noselect"
+opt.scrolloff = 8
+opt.clipboard = "unnamedplus"
 
-
+vim.cmd("colorscheme retrobox")
