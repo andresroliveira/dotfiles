@@ -59,13 +59,13 @@ if empty(v:servername) && exists('*remote_startserver')
   call remote_startserver('VIM')
 endif
 
-inoremap jj <esc>
+" inoremap jj <esc>
 
 let mapleader = " "
 let maplocalleader = " "
 
-nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
+" nnoremap <leader>w :w<cr>
+" nnoremap <leader>q :q<cr>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -118,7 +118,7 @@ let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_transparent_bg = 1
 set bg=dark
 colorscheme gruvbox
-highlight! link SignColumn LineNr
+" highlight! link SignColumn LineNr
 
 
 " colorscheme tokyonight
