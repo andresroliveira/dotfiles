@@ -82,7 +82,7 @@
   :custom
   (dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
   (dired-dwim-target t)
-  (dired-listing-switches "-alh --group-directories-first")
+  (dired-listing-switches "-lahv --group-directories-first")
   (dired-mouse-drag-files t))
 
 ;; (use-package diredfl
@@ -293,6 +293,9 @@ at column N of the new (duplicated) line."
          (c++-mode . lsp)
          (js-mode . lsp)
          (typescript-mode . lsp)
+         (rust-mode . lsp)
+         (zig-mode . lsp)
+         (go-mode . lsp)
          (lua-mode . lsp)
          (json-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
@@ -444,6 +447,48 @@ at column N of the new (duplicated) line."
   :ensure t
   :config
   (elfeed-goodies/setup))
+
+(use-package go-mode
+  :ensure t
+  :mode ("\\.go\\'" . go-mode))
+
+(use-package rust-mode
+  :ensure t
+  :mode ("\\.rs\\'" . rust-mode)
+  :init
+  :config
+  (setq rust-format-on-save t))
+
+(use-package zig-mode
+  :ensure t
+  :mode ("\\.zig\\'" . zig-mode))
+
+(use-package julia-mode
+  :ensure t
+  :mode ("\\.jl\\'" . julia-mode))
+
+(use-package lsp-julia
+  :ensure t
+  :after lsp-mode
+  :init
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.10")
+  :hook
+  (julia-mode . (lambda ()
+                  (require 'lsp-julia)
+                  (lsp))))
+
+(use-package julia-repl
+  :ensure t
+  :hook (julia-mode . julia-repl-mode)
+  :config
+  ;; Opcional: usar vterm em vez do ansi-term (recomendado)
+  (when (require 'vterm nil 'noerror)
+    (julia-repl-set-terminal-backend 'vterm)))
+
+(use-package dap-mode
+  :ensure t
+  :hook
+  (dap-mode . (lambda () (require 'dap-lldb))))
 
 
 (require 'server)
