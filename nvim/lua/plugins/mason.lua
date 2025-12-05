@@ -36,6 +36,7 @@ return {
 					"intelephense",
 					"tailwindcss",
 					"emmet_language_server",
+					"julials",
 				},
 				-- Deixe true para ligar automaticamente tudo que o Mason instalar.
 				-- Você pode filtrar: { exclude = { "rust_analyzer" } } ou { "lua_ls", "pyright" }

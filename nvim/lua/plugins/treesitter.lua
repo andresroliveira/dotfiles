@@ -24,6 +24,7 @@ return {
 				"blade",
 				"go",
 				"typescript",
+				"julia",
 			},
 			sync_install = false,
 			highlight = { enable = true },
